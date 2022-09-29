@@ -13,14 +13,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
-- task: AzureCLI@2
-  displayName: Preview Bicep Changes
-  inputs:
-    azureSubscription: 'Azure Subscription (7eec5920-1cc0-4b2d-aa7c-297758bdd309)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'Azure Subscription (7eec5920-1cc0-4b2d-aa7c-297758bdd309)'
