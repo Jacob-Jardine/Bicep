@@ -10,7 +10,7 @@ variables:
   templateFile: 'azure-bicep-webapp/webapp-linux.bicep'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'linux-latest'
 
 steps:
 - task: AzureCLI@2
