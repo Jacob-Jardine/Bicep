@@ -7,7 +7,7 @@ variables:
   resourceGroupName: 'rg-bicep-demo-0017'
   location: 'uksouth'
   webAppName: 'bicep0017'
-  templateFile: '/azure-bicep-webapp\webapp-linux.bicep'
+  templateFile: '\azure-bicep-webapp\webapp-linux.bicep'
 
 pool:
   vmImage: 'ubuntu-latest'
