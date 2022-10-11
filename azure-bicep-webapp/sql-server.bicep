@@ -12,7 +12,7 @@ param administratorLogin string
 
 @description('The administrator password of the SQL logical server.')
 @secure()
-param administratorLoginPassword string = 'SQLAdmin123!'
+param administratorLoginPassword string = 'SQLAdmin123!asfkjh£$£%'
 
 resource sqlServer 'Microsoft.Sql/servers@2021-08-01-preview' = {
   name: serverName
