@@ -9,7 +9,6 @@ variables:
   webAppName: 'webappbiceptest00001'
   templateFile: 'azure-bicep-webapp/sql-server.bicep'
   administratorLogin: 'SQLAdmin'
-  administratorLoginPassword: 'SQLAdmin123'
 
 pool:
   vmImage: 'windows-latest'
@@ -30,7 +29,7 @@ steps:
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group what-if --resource-group $(resourceGroupName) \
          --template-file $(templateFile) \
-         --parameters administratorLogin=$(administratorLogin) administratorLoginPassword$(administratorLoginPassword)
+         --parameters administratorLogin=$(administratorLogin) 
 
 - task: AzureCLI@2
   displayName: Deploy Bicep To Azure
@@ -41,4 +40,4 @@ steps:
     inlineScript: |
       az deployment group create --resource-group $(resourceGroupName) \
          --template-file $(templateFile) \
-         --parameters administratorLogin=$(administratorLogin) administratorLoginPassword$(administratorLoginPassword)
+         --parameters administratorLogin=$(administratorLogin) 
