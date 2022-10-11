@@ -6,7 +6,7 @@ trigger:
 variables:
   resourceGroupName: 'rg-bicep-demo-0017'
   location: 'uksouth'
-  webAppName: 'bicep0017'
+  webAppName: 'webappbiceptest00001'
   templateFile: 'azure-bicep-webapp/webapp-windows.bicep'
 
 pool:
