@@ -1,6 +1,6 @@
 param webAppName string = uniqueString(resourceGroup().id) // Generate unique String for web app name
 param sku string = 'F1' // The SKU of App Service Plan
-param windowsFxVersion string = 'DOTNETCORE|6.0' // The runtime stack of web app
+param netFramework string = 'v6.0' // The runtime stack of web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Jacob-Jardine/BicepTestWebApp'
 param branch string = 'master'
@@ -24,7 +24,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      windowsFxVersion: windowsFxVersion
+      netFrameworkVersion: netFramework
     }
   }
 }

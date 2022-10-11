@@ -5,9 +5,11 @@ trigger:
 
 variables:
   resourceGroupName: 'rg-bicep-demo-0017'
-  location: 'uksouth'
+  location: 'ukwest'
   webAppName: 'webappbiceptest00001'
   templateFile: 'azure-bicep-webapp/webapp-windows.bicep'
+  administratorLogin: 'SQLAdmin'
+  administratorLoginPassword: 'SQLAdmin123'
 
 pool:
   vmImage: 'windows-latest'
@@ -23,7 +25,7 @@ steps:
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group what-if --resource-group $(resourceGroupName) \
          --template-file $(templateFile) \
-         --parameters webAppName=$(webAppName)
+         --parameters webAppName=$(webAppName) administratorLogin=$(administratorLogin) administratorLoginPassword$(administratorLoginPassword)
       az --version
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group what-if --resource-group $(resourceGroupName) \
@@ -39,4 +41,4 @@ steps:
     inlineScript: |
       az deployment group create --resource-group $(resourceGroupName) \
          --template-file $(templateFile) \
-         --parameters webAppName=$(webAppName)
+         --parameters webAppName=$(webAppName) administratorLogin=$(administratorLogin) administratorLoginPassword$(administratorLoginPassword)
