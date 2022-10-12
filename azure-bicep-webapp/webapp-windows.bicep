@@ -28,7 +28,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
       appSettings: [
         {
           name: 'Testing1'
-          value: 'Testing1'
+          value: 'Update'
         }
         {
           name: 'Testing2'
