@@ -5,10 +5,9 @@ trigger:
 
 variables:
   resourceGroupName: 'rg-bicep-demo-0017'
-  location: 'ukwest'
+  location: 'euwest'
   webAppName: 'webappbiceptest00001'
-  templateFile: 'azure-bicep-webapp/sql-server.bicep'
-  administratorLogin: 'SQLAdmin'
+  templateFile: 'azure-bicep-webapp/main.bicep'
 
 pool:
   vmImage: 'windows-latest'
@@ -24,12 +23,7 @@ steps:
       az group create --name $(resourceGroupName) --location $(location)
       az deployment group what-if --resource-group $(resourceGroupName) \
          --template-file $(templateFile) \
-         --parameters administratorLogin=$(administratorLogin)
-      az --version
-      az group create --name $(resourceGroupName) --location $(location)
-      az deployment group what-if --resource-group $(resourceGroupName) \
-         --template-file $(templateFile) \
-         --parameters administratorLogin=$(administratorLogin) 
+      
 
 - task: AzureCLI@2
   displayName: Deploy Bicep To Azure

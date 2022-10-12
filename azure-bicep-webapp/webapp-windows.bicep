@@ -1,7 +1,7 @@
-param webAppName string = uniqueString(resourceGroup().id) // Generate unique String for web app name
+param webAppName string // Generate unique String for web app name
 param sku string = 'F1' // The SKU of App Service Plan
 param netFramework string = 'v6.0' // The runtime stack of web app
-param location string = resourceGroup().location // Location for all resources
+param location string // Location for all resources
 param repositoryUrl string = 'https://github.com/Jacob-Jardine/BicepTestWebApp'
 param branch string = 'master'
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
