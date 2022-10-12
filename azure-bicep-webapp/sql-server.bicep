@@ -32,3 +32,12 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2021-08-01-preview' = {
     tier: 'Basic'
   }
 }
+
+resource sqlServerFirewallRules 'Microsoft.Sql/servers/firewallRules@2021-02-01-preview' = {
+  parent: sqlServer
+  name: 'AllowAzureServicesToAccess'
+  properties: {
+    startIpAddress: '0.0.0.0'
+    endIpAddress: '0.0.0.0'
+  }
+}
