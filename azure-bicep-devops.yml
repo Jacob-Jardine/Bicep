@@ -4,8 +4,10 @@ trigger:
 - main
 
 variables:
-  resourceGroupName: 'rg-bicep-demo-0017'
-  location: 'ukwest'
+  webAppResourceGroupName: 'webAppRG'
+  sqlResourceGroup: 'sqlRG'
+  locationWest: 'ukwest'
+  locationSouth: 'uksouth'
   webAppName: 'webappbiceptest00001'
   templateFile: 'azure-bicep-webapp/main.bicep'
 
@@ -14,15 +16,21 @@ pool:
 
 steps:
 - task: AzureCLI@2
+  displayName: Preview Changes
   inputs:
     azureSubscription: 'Azure Subscription (7eec5920-1cc0-4b2d-aa7c-297758bdd309)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
       az --version
-      az group create --name $(resourceGroupName) --location $(location)
-      az deployment group what-if --resource-group $(resourceGroupName) \
+      az group create --name $(webAppResourceGroupName) --location $(locationSouth)
+      az deployment group what-if --resource-group $(webAppResourceGroupName) \
          --template-file $(templateFile) \
+         --parameters location=$(locationSouth)
+      az group create --name $(sqlResourceGroup) --location $(locationWest)
+      az deployment group what-if --resource-group $(sqlResourceGroup) \
+         --template-file $(templateFile) \
+         --parameters location=$(locationWest)
       
 
 - task: AzureCLI@2
@@ -32,5 +40,9 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az deployment group create --resource-group $(resourceGroupName) \
+      az deployment group create --resource-group $(webAppResourceGroupName) \
          --template-file $(templateFile) \
+         --parameters location=$(locationSouth)
+      az deployment group create --resource-group $(sqlResourceGroup) \
+         --template-file $(templateFile) \
+         --parameters location=$(locationWest)
