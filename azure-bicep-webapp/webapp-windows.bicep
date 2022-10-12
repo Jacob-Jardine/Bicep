@@ -25,6 +25,16 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
     serverFarmId: appServicePlan.id
     siteConfig: {
       netFrameworkVersion: netFramework
+      appSettings: [
+        {
+          name: 'Testing1'
+          value: 'Testing1'
+        }
+        {
+          name: 'Testing2'
+          value: 'Testing2'
+        }
+      ]
     }
   }
 }

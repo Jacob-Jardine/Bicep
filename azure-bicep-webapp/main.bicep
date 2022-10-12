@@ -1,15 +1,11 @@
 param location string
-param webAppName string = 'JacobJardineWebApp000001'
+param webAppName string = uniqueString(resourceGroup().id)
 
 module webAppModule 'webapp-windows.bicep' = if (location == 'uksouth') {
   name: 'WebAppDeploy'
   params: {
     webAppName: webAppName
     location: location
-    currentAppSettings: list(resourceId('Microsoft.Web/sites/config', webAppName, 'appsettings'), '2022-03-01').properties
-    appSettings: {
-      Foo: 'Bar'
-    }
   }
 }
 
