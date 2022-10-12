@@ -8,7 +8,6 @@ variables:
   sqlResourceGroup: 'sqlRG'
   locationWest: 'ukwest'
   locationSouth: 'uksouth'
-  webAppName: 'webappbiceptest00001'
   templateFile: 'azure-bicep-webapp/main.bicep'
 
 pool:
