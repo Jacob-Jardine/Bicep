@@ -34,6 +34,10 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
           name: 'Testing2'
           value: 'Testing2'
         }
+        {
+          name: 'Testing3'
+          value: 'sd'
+        }
       ]
     }
   }
