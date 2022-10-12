@@ -36,3 +36,11 @@ resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
     isManualIntegration: true
   }
 }
+
+param appSettings object
+param currentAppSettings object
+
+resource siteconfig 'Microsoft.Web/sites/config@2022-03-01' = {
+  name: '${webAppName}/appsettings'
+  properties: union(currentAppSettings, appSettings)
+}
