@@ -1,5 +1,5 @@
 param location string
-param webAppName string = uniqueString(resourceGroup().id)
+param webAppName string = 'JacobJardineTestSite001'
 
 module webAppModule 'webapp-windows.bicep' = if (location == 'uksouth') {
   name: 'WebAppDeploy'
