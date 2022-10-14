@@ -9,10 +9,10 @@ module webAppModule 'webapp-windows.bicep' = if (location == 'uksouth') {
   }
 }
 
-module sqlModule 'sql-server.bicep' = if (location == 'ukwest') {
-  name: 'SQLDeploy'
-  params: {
-    location: location
-    administratorLogin: 'SQLAdmin123'
-  }
-}
+// module sqlModule 'sql-server.bicep' = if (location == 'ukwest') {
+//   name: 'SQLDeploy'
+//   params: {
+//     location: location
+//     administratorLogin: 'SQLAdmin123'
+//   }
+// }
