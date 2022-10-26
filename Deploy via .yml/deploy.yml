@@ -8,7 +8,7 @@ variables:
   sqlResourceGroup: 'sqlRG'
   locationWest: 'ukwest'
   locationSouth: 'uksouth'
-  templateFile: 'azure-bicep-webapp/main.bicep'
+  templateFile: 'main.bicep'
 
 pool:
   vmImage: 'windows-latest'

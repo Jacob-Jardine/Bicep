@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "webAppName": {
+      "value": "JacobJardine001"
+    },
+    "location": {
+      "value": "uksouth"
+    },
+    "sku": {
+      "value": "F1"
+    },
+    "netFramework": {
+      "value": "v6.0"
+    },
+    "repositoryUrl": {
+      "value": "https://github.com/Jacob-Jardine/DashboardV2"
+    },
+    "branch": {
+      "value": "master"
+    }
+  }
+}
